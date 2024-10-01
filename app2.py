@@ -39,7 +39,9 @@ st.markdown(f"""
 
 @st.cache(allow_output_mutation=True)
 def get_info(url):
-    yt = YouTube(url)
+    yt = YouTube(url, 
+                'WEB_CREATOR',
+                on_progress_callback=progress_function)
     streams = yt.streams.filter(progressive=True, type='video')
     details = {}
     details["image"] = yt.thumbnail_url

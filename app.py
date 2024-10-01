@@ -28,7 +28,9 @@ if st.button("다운로드"):
     if url:
         try:
             # `use_po_token=True` 옵션 추가
-            yt = YouTube(url, on_progress_callback=progress_function)
+            yt = YouTube(url, 
+                        'WEB_CREATOR',
+                        on_progress_callback=progress_function)
             st.write(f"제목: {yt.title}")
 
             if video_or_audio == '비디오':
